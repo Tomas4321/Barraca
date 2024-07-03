@@ -1,0 +1,15 @@
+.imagenes{
+    width: 150px;
+    height: 150px;
+}
+
+.oferta{
+    background: lightgreen;
+    font-size: 20px; 
+    font-weight: 800;
+}
+
+.stock{
+    font-size: 20px; 
+    font-weight: 600;
+}

@@ -1,0 +1,45 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Marca</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Precio</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (alimento of alimentos; track alimento.marca) {
+    <tr>
+      <th>{{alimento.marca}}</th>
+      @if(alimento.stock > 0){
+        <td>{{alimento.stock}}</td>
+      }
+      @else {
+        <td><span class="badge text-bg-danger stock">Sin stock</span></td>
+      }
+      <td class="table-warning">{{alimento.precio}}</td>
+      <td><img class="imagenes" [src]="alimento.imagen" [alt]=""></td>
+      @if(alimento.oferta){
+        <td><span class="badge text-bg-success oferta">OFERTA!!</span></td>
+      }
+    </tr>
+    }
+    @empty {
+    <tr>
+      <td>No hay alimentos disponibles en este momento</td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+
+<!-- Forma vieja -->
+<!-- <tr *ngFor="let alimento of alimentos" [ngClass]="{'oferta': alimento.oferta}"> -->
+<!-- <th>{{alimento.marca}}</th>
+          <td>{{alimento.stock}}</td>
+          <td class="table-warning">{{alimento.precio}}</td>
+          <td><img class="imagenes" [src]="alimento.imagen" [alt]=""></td>
+          <td><span *ngIf="alimento.stock == 0" class="badge text-bg-danger stock">Sin stock</span></td>
+          <td></td>
+        </tr> -->
