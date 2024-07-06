@@ -4,4 +4,5 @@ export interface Alimento{
     precio : number;
     imagen : string;
     oferta: boolean;
+    cantidad: number;
 }

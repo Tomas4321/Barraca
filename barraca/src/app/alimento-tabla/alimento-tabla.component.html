@@ -1,29 +1,45 @@
-<table class="table">
+<h1 class="line">Lista de alimentos</h1>
+<table class="table text-center">
   <thead>
     <tr>
       <th scope="col">Marca</th>
       <th scope="col">Stock</th>
       <th scope="col">Precio</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th scope="col">Imagen</th>
+      <th scope="col">Oferta semanal</th>
+      <!-- <th scope="col"></th> -->
+      <th scope="col">Cantidad</th>
+      <!-- <th scope="col"></th> -->
     </tr>
   </thead>
   <tbody>
+
+    <!-- Directivas -->
     @for (alimento of alimentos; track alimento.marca) {
-    <tr>
-      <th>{{alimento.marca}}</th>
-      @if(alimento.stock > 0){
-        <td>{{alimento.stock}}</td>
-      }
-      @else {
-        <td><span class="badge text-bg-danger stock">Sin stock</span></td>
-      }
-      <td class="table-warning">{{alimento.precio}}</td>
-      <td><img class="imagenes" [src]="alimento.imagen" [alt]=""></td>
-      @if(alimento.oferta){
-        <td><span class="badge text-bg-success oferta">OFERTA!!</span></td>
-      }
-    </tr>
+      <tr>
+        <th>{{alimento.marca}}</th>
+        @if(alimento.stock == 0){
+          <td><span class="badge text-bg-danger stock">Sin stock</span></td>
+        }
+        @else{
+          <td><span class="badge text-bg-primary stock">Disponible</span></td>
+        }
+        <td class="table-warning">{{alimento.precio}}</td>
+        <td><img width="100" class="img-thumbnail" [src]="alimento.imagen" [alt]=""></td>
+        @if(alimento.oferta){
+          <td><span class="badge text-bg-success oferta">OFERTA!!</span></td>
+        }
+        @else {
+          <td></td>
+        }
+        @if(alimento.stock!=0){
+          <!-- Componente -->
+            <app-input-integer [(cantidad)]="alimento.cantidad" [max]="alimento.stock"></app-input-integer>
+          }
+          @else {
+            <input type="number" class="form-control input-sm w-100 no-spinner" disabled placeholder="No disponible">
+          }
+      </tr>
     }
     @empty {
     <tr>
@@ -43,4 +59,8 @@
           <td><span *ngIf="alimento.stock == 0" class="badge text-bg-danger stock">Sin stock</span></td>
           <td></td>
         </tr> -->
-        <!--  -->
+
+<!--      <td><img class="imagenes" [src]="alimento.imagen" [alt]=""></td>
+      @if(alimento.oferta){
+        <td><span class="badge text-bg-success oferta">OFERTA!!</span></td>
+      }  -->

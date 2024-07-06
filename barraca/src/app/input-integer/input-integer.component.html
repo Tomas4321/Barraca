@@ -1,0 +1,5 @@
+<div class="container">
+    <td><button (click)="decrementarAlimento()" class="btn btn-primary btn-sm">-</button></td>
+    <input type="number" class="form-control input-sm w-100 no-spinner" [(ngModel)]="cantidad" (keyup)="ChangeQuantity($event)">
+    <td><button (click)="sumarAlimento()" class="btn btn-primary btn-sm">+</button></td>
+</div>

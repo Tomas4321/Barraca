@@ -1,0 +1,14 @@
+input[type=number].no-spinner::-webkit-inner-spin-button,
+input[type=number].no-spinner::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
+.btn{
+    width: 30px;
+}
