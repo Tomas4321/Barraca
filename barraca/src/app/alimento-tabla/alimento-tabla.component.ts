@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlimentoCarritoService } from '../alimento-carrito.service';
 import { Alimento } from './alimento';
 
 @Component({
@@ -18,7 +19,7 @@ export class AlimentoTablaComponent {
   },
   {
     marca : "Old price",
-    stock : 150,
+    stock : 5,
     precio : 40000,
     imagen : "assets/img/old_price.jpg",
     oferta : true,
@@ -36,11 +37,16 @@ export class AlimentoTablaComponent {
 ]
 
 
+  constructor(private carrito: AlimentoCarritoService){
+  }
   
-  //Probar a ver que hace 
-  // constructor(){
-  //   let x = "Barraca-online";
-  // }
-  
+  agregarAlCarrito(alimento: Alimento) : void{
+    if(alimento.cantidad > 0)
+    this.carrito.agregarAlCarrito(alimento);
+    alimento.stock -= alimento.cantidad;
+    alimento.cantidad = 0;
+  }
+
+
 
 }

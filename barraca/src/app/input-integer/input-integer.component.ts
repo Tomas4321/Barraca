@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class InputIntegerComponent {
 
   //Tipo
-  @Input() cantidad!: number;
+  @Input() cantidad: number = 0;
   @Input() max!: number;
   @Output() cantidadChange : EventEmitter<number> = new EventEmitter<number>();
   
@@ -28,7 +28,6 @@ export class InputIntegerComponent {
 
   ChangeQuantity(event: Event): void {
     const inputNumber = parseInt((event.target as HTMLInputElement).value, 10); // Convierte el valor del input a un número entero
-
     if (!isNaN(inputNumber)) {
       // Si el valor ingresado es un número válido
       if (inputNumber >= 0) {
@@ -43,6 +42,7 @@ export class InputIntegerComponent {
       // Si no se ingresó un número válido, restablece la cantidad al valor anterior
       (event.target as HTMLInputElement).value = this.cantidad.toString();
     }
+    let x = this.cantidadChange.emit(this.cantidad);
   }
 
 }

@@ -1,1 +1,9 @@
-<h1>Carrito de compra</h1>
+<h1>Carrito de compras</h1>
+<ul>
+    @for (alimento of listaCompras | async; track alimento.marca) {
+        <li>
+            {{alimento.marca}} : {{alimento.cantidad}}
+        </li>
+    }
+
+</ul>
