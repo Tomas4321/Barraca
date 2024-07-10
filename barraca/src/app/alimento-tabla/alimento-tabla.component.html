@@ -23,8 +23,8 @@
         @else{
           <td><span class="badge text-bg-primary stock">Disponible</span></td>
         }
-        <td class="table-warning">{{alimento.precio}}</td>
-        <td><img width="100" class="img-thumbnail" [src]="alimento.imagen" [alt]=""></td>
+        <td>{{alimento.precio}}</td>
+        <td><img width="150" class="img-thumbnail" [src]="alimento.imagen" [alt]=""></td>
         @if(alimento.oferta){
           <td><span class="badge text-bg-success oferta">OFERTA!!</span></td>
         }
