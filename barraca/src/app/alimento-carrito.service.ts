@@ -18,8 +18,9 @@ export class AlimentoCarritoService {
       this._listaCompras.push({ ... alimento});
     }
     else{
-      item.cantidad += alimento.cantidad;
-      //console.log("Ya esta en el carrito este alimento")
+      if(item.cantidad < alimento.stock){
+        item.cantidad += alimento.cantidad;
+      }
     }
     console.log(this._listaCompras);
     this.listaCompras.next(this._listaCompras);

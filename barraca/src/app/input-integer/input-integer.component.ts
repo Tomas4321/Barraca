@@ -36,13 +36,15 @@ export class InputIntegerComponent {
         // Establece la cantidad como el mínimo entre el valor ingresado y el stock disponible
       } else {
         // Si el número es negativo, restablece la cantidad al valor anterior
-        (event.target as HTMLInputElement).value = this.cantidad.toString();
+        //(event.target as HTMLInputElement).value = this.cantidad.toString();
+        this.cantidad = 0;
       }
     } else {
       // Si no se ingresó un número válido, restablece la cantidad al valor anterior
-      (event.target as HTMLInputElement).value = this.cantidad.toString();
+      //(event.target as HTMLInputElement).value = this.cantidad.toString();
+      this.cantidad = 0;
     }
-    let x = this.cantidadChange.emit(this.cantidad);
+    this.cantidadChange.emit(this.cantidad);
   }
 
 }
